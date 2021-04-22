@@ -1,0 +1,49 @@
+import React from 'react';
+import { Form, Input } from 'antd';
+
+const layout = {
+    labelCol: { span: 5 },
+    wrapperCol: { span: 0 },
+};
+
+const FormEditCasesComponent = ({ handleOk }) => {
+
+    const onFinish = (values) => {
+        handleOk(values);
+    };
+
+    const onFinishFailed = (errorInfo) => {
+        console.log('Failed:', errorInfo);
+    };
+
+    return (
+        <div>
+            <Form
+                {...layout}
+                id='form-edit-cases'
+                name="basic"
+                initialValues={{ remember: true }}
+                onFinish={onFinish}
+                onFinishFailed={onFinishFailed}
+            >
+                <Form.Item
+                    label="Título"
+                    name="title"
+                    rules={[{ required: true, message: 'Introduce un título!' }]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Descripción"
+                    name="description"
+                    rules={[{ required: true, message: 'Introduce una descripción!' }]}
+                >
+                    <Input.TextArea />
+                </Form.Item>
+            </Form>
+        </div>
+    );
+}
+
+export default FormEditCasesComponent;

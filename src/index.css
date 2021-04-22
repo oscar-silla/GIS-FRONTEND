@@ -1,0 +1,158 @@
+body {
+  margin: 0;
+  font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
+    monospace;
+}
+
+.icon {
+  font-size: 20px;
+}
+
+/* Margins */
+.mt-12 {
+  margin-top: 120px;
+}
+
+.site-page-header {
+  border: 1px solid rgb(235, 237, 240);
+}
+
+.flex {
+  display: flex;
+  align-items: center;
+}
+.width-content {
+  width: 1400px;
+}
+
+.flex-content {
+  display: flex;
+  justify-content: center;
+}
+
+.flex-auto {
+  margin-left: auto;
+}
+
+.flex-space {
+  display: flex;
+  justify-content: space-between;
+  flex-wrap: wrap;
+}
+
+.p-5 {
+  padding-top: 50px;
+  padding-left: 100px;
+}
+
+.edit-color {
+  color: #faad14;
+}
+
+.delete-color {
+  color: #f5222d;
+}
+
+.info-color {
+  color: #60A7B9;
+}
+
+.fixed-top {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1;
+}
+
+.mt-5 {
+  margin-top: 93px;
+}
+
+.fixed-navbar {
+  position: fixed;
+  left: 0;
+  margin-top: 11px;
+  z-index: 1;
+}
+
+.center {
+  display: flex;
+  justify-content: center;
+}
+
+.logo {
+  height: 52px;
+  width: 120px;
+  margin-right: 10px;
+  margin-bottom: 10px;
+}
+
+.table-cases-detail {
+  width: 500px;
+}
+
+
+/* Patient - Cases */
+.width-create-cases {
+  width: 550px;
+}
+
+.ml-114 {
+  margin-left: 114px;
+}
+
+.ml {
+  margin-left: 30px;
+}
+
+.select-cases {
+  width: 256px;
+}
+
+.date-cases {
+  width: 150px;
+}
+
+.span-cases {
+  content: ':';
+    position: relative;
+    top: -0.5px;
+    margin: 0 8px 0 2px;  
+}
+
+.star-cases {
+  display: inline-block;
+  margin-right: 4px;
+  color: #ff4d4f;
+  font-size: 14px;
+  font-family: SimSun, sans-serif;
+  line-height: 1;
+}
+
+.table-cases {
+  width: 600px;
+}
+
+
+/* CITES */
+
+.ml-98 {
+  margin-left: 98px;
+}
+
+.status {
+  margin-left: 20px;
+}
+
+.status-select {
+  width: 210px;
+}
