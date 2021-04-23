@@ -54,6 +54,8 @@ const SidebarComponent = ({ visible }) => {
                         <Menu.Item key="8"><Link to='/rrhh/nurses'></Link>Enfermeras</Menu.Item>
                         <Menu.Item key="9"><Link to='/rrhh/pharmacists'></Link>Farmacéuticos</Menu.Item>
                         <Menu.Item key="10"><Link to='/rrhh/lab_worker'></Link>Laboratoristas</Menu.Item>
+                        <Menu.Item key="11"><Link to='/rrhh/technician'></Link>Mantenimiento</Menu.Item>
+                        <Menu.Item key="12"><Link to='/rrhh/recepcionist'></Link>Recepcionistas</Menu.Item>
                     </SubMenu>
                 </Menu>
             </div>

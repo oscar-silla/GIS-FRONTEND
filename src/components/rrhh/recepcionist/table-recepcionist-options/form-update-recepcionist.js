@@ -1,7 +1,7 @@
-import React, { useEffect, useState } from 'react';
+import React from 'react';
 import { Form, Input, Upload } from 'antd';
 import { InboxOutlined } from '@ant-design/icons';
-import axios from 'axios';
+
 const normFile = (e) => {
     console.log('Upload event:', e);
     if (Array.isArray(e)) {
@@ -15,22 +15,12 @@ const layout = {
     wrapperCol: { span: 0 },
 };
 
-const FormCreatePharmacistsComponent = ({ handleOk }) => {
 
-    const [pharmacists, setPharmacists] = useState([]);
-
-    useEffect(() => {
-        axios.get('http://localhost:4000/pharmacists')
-            .then(result => {
-                const { data } = result.data;
-                setPharmacists(data);
-            });
-    }, []);
+const FormUpdateRecepcionistComponent = ({ handleOk }) => {
 
     const onFinish = (fieldValues) => {
         const values = {
-            ...fieldValues,
-            'id_pharmacist': pharmacists.length + 1
+            ...fieldValues
         }
         handleOk(values)
     };
@@ -43,7 +33,7 @@ const FormCreatePharmacistsComponent = ({ handleOk }) => {
         <div>
             <Form
                 {...layout}
-                id='form-create-pharmacist'
+                id='form-update-recepcionist'
                 name="basic"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
@@ -96,4 +86,4 @@ const FormCreatePharmacistsComponent = ({ handleOk }) => {
     );
 }
 
-export default FormCreatePharmacistsComponent;
+export default FormUpdateRecepcionistComponent;

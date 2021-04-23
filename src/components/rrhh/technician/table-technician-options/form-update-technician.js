@@ -15,22 +15,11 @@ const layout = {
     wrapperCol: { span: 0 },
 };
 
-const FormCreatePharmacistsComponent = ({ handleOk }) => {
-
-    const [pharmacists, setPharmacists] = useState([]);
-
-    useEffect(() => {
-        axios.get('http://localhost:4000/pharmacists')
-            .then(result => {
-                const { data } = result.data;
-                setPharmacists(data);
-            });
-    }, []);
+const FormUpdateTechnicianComponent = ({ handleOk }) => {
 
     const onFinish = (fieldValues) => {
         const values = {
-            ...fieldValues,
-            'id_pharmacist': pharmacists.length + 1
+            ...fieldValues
         }
         handleOk(values)
     };
@@ -43,7 +32,7 @@ const FormCreatePharmacistsComponent = ({ handleOk }) => {
         <div>
             <Form
                 {...layout}
-                id='form-create-pharmacist'
+                id='form-update-technician'
                 name="basic"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
@@ -96,4 +85,4 @@ const FormCreatePharmacistsComponent = ({ handleOk }) => {
     );
 }
 
-export default FormCreatePharmacistsComponent;
+export default FormUpdateTechnicianComponent;

@@ -15,22 +15,22 @@ const layout = {
     wrapperCol: { span: 0 },
 };
 
-const FormCreatePharmacistsComponent = ({ handleOk }) => {
 
-    const [pharmacists, setPharmacists] = useState([]);
+const FormCreateRecepcionistComponent = ({ handleOk }) => {
+    const [recepcionists, setRecepcionists] = useState([]);
 
     useEffect(() => {
-        axios.get('http://localhost:4000/pharmacists')
+        axios.get('http://localhost:4000/recepcionists')
             .then(result => {
                 const { data } = result.data;
-                setPharmacists(data);
+                setRecepcionists(data);
             });
     }, []);
 
     const onFinish = (fieldValues) => {
         const values = {
             ...fieldValues,
-            'id_pharmacist': pharmacists.length + 1
+            'id_recepcionist': recepcionists.length + 1
         }
         handleOk(values)
     };
@@ -43,7 +43,7 @@ const FormCreatePharmacistsComponent = ({ handleOk }) => {
         <div>
             <Form
                 {...layout}
-                id='form-create-pharmacist'
+                id='form-create-recepcionist'
                 name="basic"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
@@ -96,4 +96,4 @@ const FormCreatePharmacistsComponent = ({ handleOk }) => {
     );
 }
 
-export default FormCreatePharmacistsComponent;
+export default FormCreateRecepcionistComponent;

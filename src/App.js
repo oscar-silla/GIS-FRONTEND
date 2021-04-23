@@ -17,6 +17,8 @@ import AllCitesComponent from './components/cites/all_cites/cites';
 import NurseComponent from './components/rrhh/nurse/nurse';
 import PharmacistComponent from './components/rrhh/pharmacist/pharmacist';
 import LabWorkerComponent from './components/rrhh/lab_worker/lab-worker';
+import TechnicianComponent from './components/rrhh/technician/technician';
+import RecepcionistComponent from './components/rrhh/recepcionist/recepcionist';
 
 
 
@@ -59,6 +61,8 @@ const App = () => {
                                     <Route exact path="/rrhh/nurses" component={NurseComponent} />
                                     <Route exact path="/rrhh/pharmacists" component={PharmacistComponent} />
                                     <Route exact path="/rrhh/lab_worker" component={LabWorkerComponent} />
+                                    <Route exact path="/rrhh/technician" component={TechnicianComponent} />
+                                    <Route exact path="/rrhh/recepcionist" component={RecepcionistComponent} />
                                 </Switch>
 
                             </div>
