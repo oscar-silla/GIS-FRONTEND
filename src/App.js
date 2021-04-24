@@ -19,6 +19,7 @@ import PharmacistComponent from './components/rrhh/pharmacist/pharmacist';
 import LabWorkerComponent from './components/rrhh/lab_worker/lab-worker';
 import TechnicianComponent from './components/rrhh/technician/technician';
 import RecepcionistComponent from './components/rrhh/recepcionist/recepcionist';
+import FarmacyComponent from './components/farmacy/farmacy';
 
 
 
@@ -63,6 +64,7 @@ const App = () => {
                                     <Route exact path="/rrhh/lab_worker" component={LabWorkerComponent} />
                                     <Route exact path="/rrhh/technician" component={TechnicianComponent} />
                                     <Route exact path="/rrhh/recepcionist" component={RecepcionistComponent} />
+                                    <Route exact path="/farmacy" component={FarmacyComponent} />
                                 </Switch>
 
                             </div>
