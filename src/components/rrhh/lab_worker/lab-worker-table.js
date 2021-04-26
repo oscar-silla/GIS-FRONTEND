@@ -25,8 +25,8 @@ const LabWorkerTableComponent = () => {
     const columns = [
         {
             title: 'Imagen',
-            dataIndex: 'image',
-            key: 'image'
+            key: 'image',
+            render: labWorker => <img className='image' alt={labWorker.image} src={labWorker.image} />
         },
         {
             title: 'Nombre',

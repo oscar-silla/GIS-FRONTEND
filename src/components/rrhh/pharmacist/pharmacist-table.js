@@ -25,8 +25,8 @@ const PharmacistTableComponent = () => {
     const columns = [
         {
             title: 'Imagen',
-            dataIndex: 'image',
-            key: 'image'
+            key: 'image',
+            render: pharmacist => <img className='image' alt={pharmacist.image} src={pharmacist.image} />
         },
         {
             title: 'Nombre',

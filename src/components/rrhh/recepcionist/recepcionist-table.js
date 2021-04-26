@@ -26,8 +26,8 @@ const RecepcionistTableComponent = () => {
     const columns = [
         {
             title: 'Imagen',
-            dataIndex: 'image',
-            key: 'image'
+            key: 'image',
+            render: recepcionist => <img className='image' alt={recepcionist.image} src={recepcionist.image} />
         },
         {
             title: 'Nombre',

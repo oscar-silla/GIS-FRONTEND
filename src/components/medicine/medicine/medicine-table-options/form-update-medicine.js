@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Select, DatePicker, Upload, InputNumber } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
+import ImgCrop from 'antd-img-crop';
 import axios from 'axios';
 
 const layout = {
@@ -12,18 +12,14 @@ const config = {
     rules: [{ type: 'object', required: true, message: 'Please select time!' }],
 };
 
-const normFile = (e) => {
-    console.log('Upload event:', e);
-    if (Array.isArray(e)) {
-        return e;
-    }
-    return e && e.fileList;
-};
+
 
 export const FormUpdateMedicineComponent = ({ handleOk }) => {
 
     const [categories, setCategories] = useState([]);
     const [farmacies, setFarmacies] = useState([]);
+    const [fileList, setFileList] = useState([]);
+    
 
     useEffect(() => {
         axios.get('http://localhost:4000/medicine/categories')
@@ -39,8 +35,10 @@ export const FormUpdateMedicineComponent = ({ handleOk }) => {
     }, []);
 
     const onFinish = (fieldValues) => {
+        const image = fileList.find(file => file.thumbUrl)
         const values = {
             ...fieldValues,
+            'image': image.thumbUrl,
             'expirationDate': fieldValues['expirationDate'].format('YYYY-MM-DD')
         }
         handleOk(values);
@@ -49,6 +47,12 @@ export const FormUpdateMedicineComponent = ({ handleOk }) => {
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
+
+    const onChange = ({ fileList: newFileList }) => {
+        setFileList(newFileList);
+    };
+
+    
 
     return (
         <div>
@@ -82,7 +86,7 @@ export const FormUpdateMedicineComponent = ({ handleOk }) => {
                     <div className='ml-10'>
                         <label>Precio Unitario:</label>
                         <Form.Item name='price' rules={[{ type: 'number', min: 0, max: 1000 }]}>
-                            <InputNumber style={{width: '120px'}}  />
+                            <InputNumber style={{ width: '120px' }} />
                         </Form.Item>
                     </div>
                     <div className='ml-10'>
@@ -118,14 +122,18 @@ export const FormUpdateMedicineComponent = ({ handleOk }) => {
                 </Form.Item>
 
                 <Form.Item label="Imagen">
-                    <Form.Item name="image" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-                        <Upload.Dragger name="files" action="/upload.do">
-                            <p className="ant-upload-drag-icon">
-                                <InboxOutlined />
-                            </p>
-                            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-                        </Upload.Dragger>
+                    <Form.Item>
+                        <ImgCrop rotate>
+                            <Upload
+                                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                listType="picture-card"
+                                fileList={fileList}
+                                onChange={onChange}
+                                
+                            >
+                                {fileList.length < 5 && '+ Upload'}
+                            </Upload>
+                        </ImgCrop>
                     </Form.Item>
                 </Form.Item>
             </Form>

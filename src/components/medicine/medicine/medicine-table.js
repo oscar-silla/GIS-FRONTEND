@@ -60,8 +60,8 @@ const MedicineTableComponent = ({ farmacies }) => {
     const columns = [
         {
             title: 'Imagen',
-            dataIndex: 'image',
-            key: 'image'
+            key: 'image',
+            render: medicine => <img className='image' alt={medicine.image} src={medicine.image} />
         },
         {
             title: 'Nombre',

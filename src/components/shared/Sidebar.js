@@ -42,11 +42,11 @@ const SidebarComponent = ({ visible }) => {
                         >
                             <SubMenu key="sub1" icon={<FontAwesomeIcon icon={faUserMd} className='icon' />}>
                                 <Menu.Item key="1"><Link to='/doctor_list'></Link>Lista de Doctores</Menu.Item>
-                                <Menu.Item key="2">Historia del tratamiento</Menu.Item>
+                                {/* <Menu.Item key="2">Historia del tratamiento</Menu.Item> */}
                             </SubMenu>
                             <SubMenu key="sub2" icon={<FontAwesomeIcon icon={faUserInjured} className='icon' />}>
                                 <Menu.Item key="3"><Link to='/patient_list'></Link>Lista de Pacientes</Menu.Item>
-                                <Menu.Item key="4">Pagos</Menu.Item>
+                               {/*  <Menu.Item key="4">Pagos</Menu.Item> */}
                                 <Menu.Item key="5"><Link to='/cases'></Link>Caso del Paciente</Menu.Item>
                                 <Menu.Item key="6"><Link to='/documents'></Link>Documentos del Paciente</Menu.Item>
                             </SubMenu>
@@ -77,11 +77,11 @@ const SidebarComponent = ({ visible }) => {
                         >
                             <SubMenu key="sub1" icon={<FontAwesomeIcon icon={faUserMd} className='icon' />} title={<span className='p-sidebar'>Médicos</span>}>
                                 <Menu.Item key="1"><Link to='/doctor_list'></Link>Lista de Doctores</Menu.Item>
-                                <Menu.Item key="2">Historia del tratamiento</Menu.Item>
+                                {/* <Menu.Item key="2">Historia del tratamiento</Menu.Item> */}
                             </SubMenu>
                             <SubMenu key="sub2" icon={<FontAwesomeIcon icon={faUserInjured} className='icon' />} title={<span className='p-sidebar'>Pacientes</span>}>
                                 <Menu.Item key="3"><Link to='/patient_list'></Link>Lista de Pacientes</Menu.Item>
-                                <Menu.Item key="4">Pagos</Menu.Item>
+                                {/* <Menu.Item key="4">Pagos</Menu.Item> */}
                                 <Menu.Item key="5"><Link to='/cases'></Link>Caso del Paciente</Menu.Item>
                                 <Menu.Item key="6"><Link to='/documents'></Link>Documentos del Paciente</Menu.Item>
                             </SubMenu>

@@ -26,8 +26,8 @@ const TechnicianTableComponent = () => {
     const columns = [
         {
             title: 'Imagen',
-            dataIndex: 'image',
-            key: 'image'
+            key: 'image',
+            render: technician => <img className='image' alt={technician.image} src={technician.image} />
         },
         {
             title: 'Nombre',

@@ -1,14 +1,6 @@
-import React from 'react';
+import React, {useState} from 'react';
 import { Form, Input, Upload } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
-
-const normFile = (e) => {
-    console.log('Upload event:', e);
-    if (Array.isArray(e)) {
-        return e;
-    }
-    return e && e.fileList;
-};
+import ImgCrop from 'antd-img-crop';
 
 const layout = {
     labelCol: { span: 5 },
@@ -17,15 +9,23 @@ const layout = {
 
 const FormUpdateLabWorkerComponent = ({ handleOk }) => {
 
+    const [fileList, setFileList] = useState([]);
+
     const onFinish = (fieldValues) => {
+        const image = fileList.find(file => file.thumbUrl);
         const values = {
-            ...fieldValues
+            ...fieldValues,
+            'image': image.thumbUrl
         }
         handleOk(values)
     };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
+    };
+
+    const onChange = ({ fileList: newFileList }) => {
+        setFileList(newFileList);
     };
 
     return (
@@ -70,14 +70,18 @@ const FormUpdateLabWorkerComponent = ({ handleOk }) => {
                 </Form.Item>
 
                 <Form.Item label="Imagen">
-                    <Form.Item name="image" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-                        <Upload.Dragger name="files" action="/upload.do">
-                            <p className="ant-upload-drag-icon">
-                                <InboxOutlined />
-                            </p>
-                            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-                        </Upload.Dragger>
+                    <Form.Item>
+                        <ImgCrop rotate>
+                            <Upload
+                                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                listType="picture-card"
+                                fileList={fileList}
+                                onChange={onChange}
+
+                            >
+                                {fileList.length < 5 && '+ Upload'}
+                            </Upload>
+                        </ImgCrop>
                     </Form.Item>
                 </Form.Item>
             </Form>

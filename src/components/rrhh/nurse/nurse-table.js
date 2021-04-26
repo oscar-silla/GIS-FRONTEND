@@ -27,8 +27,8 @@ const NurseTableComponent = () => {
     const columns = [
         {
             title: 'Imagen',
-            dataIndex: 'image',
-            key: 'image'
+            key: 'image',
+            render: nurse => <img className='image' alt={nurse.image} src={nurse.image} />
         },
         {
             title: 'Nombre',
