@@ -20,7 +20,7 @@ const UpdateDocumentComponent = ({ isModalUpdateVisible, setIsModalUpdateVisible
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Editar Documento" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
                     footer={
                         <Button form='form-update-document' key='submit' htmlType='submit'>
                             Aceptar

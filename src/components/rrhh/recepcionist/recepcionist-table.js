@@ -54,7 +54,7 @@ const RecepcionistTableComponent = () => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModalUpdate(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showModalUpdate(record._id)}>Editar</span>
                     <DeleteRecepcionistComponent currentId={record._id} setUpdated={setUpdated} />
                 </Space>
             ),

@@ -1,15 +1,6 @@
 import React, { useState } from 'react';
 import { Form, Input, Upload } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
 import ImgCrop from 'antd-img-crop';
-
-const normFile = (e) => {
-    console.log('Upload event:', e);
-    if (Array.isArray(e)) {
-        return e;
-    }
-    return e && e.fileList;
-};
 
 const layout = {
     labelCol: { span: 5 },

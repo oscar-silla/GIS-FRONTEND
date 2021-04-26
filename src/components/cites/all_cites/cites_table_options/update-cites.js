@@ -20,7 +20,7 @@ const UpdateCitesComponent = ({ isModalUpdateVisible, setIsModalUpdateVisible, c
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Editar Cita" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
             footer={
                 <Button form='form-update-cites' key='submit' htmlType='submit'>
                     Aceptar

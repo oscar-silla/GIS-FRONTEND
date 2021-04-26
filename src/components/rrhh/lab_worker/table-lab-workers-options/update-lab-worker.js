@@ -19,7 +19,7 @@ const UpdateLabWorkerComponent = ({isModalUpdateVisible, setIsModalUpdateVisible
 
     return (
         <div>
-            <Modal title="Crear Laboratorista" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Editar Laboratorista" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-update-lab-worker' key='submit' htmlType='submit'>
                         Aceptar

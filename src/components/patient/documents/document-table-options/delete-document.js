@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Space } from 'antd';
+import { Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
@@ -9,7 +9,7 @@ const DeleteDocumentComponent = ({ currentId, setUpdated }) => {
 
     const showConfirm = () => {
         confirm({
-            title: 'Desea eliminar este documento?',
+            title: '¿Desea eliminar este documento?',
             icon: <ExclamationCircleOutlined />,
             content: '',
             onOk() {
@@ -28,7 +28,7 @@ const DeleteDocumentComponent = ({ currentId, setUpdated }) => {
 
     return (
         <div>
-            <a className='delete-color' onClick={showConfirm}>Borrar</a>
+            <span className='delete-color option' onClick={showConfirm}>Borrar</span>
         </div>
     )
 }

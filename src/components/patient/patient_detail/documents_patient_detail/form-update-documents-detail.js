@@ -1,6 +1,6 @@
 import React from 'react';
 import { Form, Input, Upload } from 'antd';
-import { UploadOutlined, InboxOutlined } from '@ant-design/icons';
+import { InboxOutlined } from '@ant-design/icons';
 
 const layout = {
     labelCol: { span: 4 },

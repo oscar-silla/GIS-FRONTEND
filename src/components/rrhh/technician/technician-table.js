@@ -54,7 +54,7 @@ const TechnicianTableComponent = () => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showUpdateModal(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showUpdateModal(record._id)}>Editar</span>
                     <DeleteTechnicianComponent currentId={record._id} setUpdated={setUpdated} />
                 </Space>
             ),

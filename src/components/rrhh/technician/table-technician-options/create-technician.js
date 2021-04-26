@@ -20,7 +20,7 @@ const CreateTechnicianComponent = ({ isModalCreateVisible, setIsModalCreateVisib
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Crear Técnico de Mantenimiento" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-create-technician' key='submit' htmlType='submit'>
                         Aceptar

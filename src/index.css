@@ -17,6 +17,10 @@ code {
   height: 50px;
 }
 
+.option {
+  cursor: pointer;
+}
+
 .p-sidebar {
   margin-left: 20px;
 }

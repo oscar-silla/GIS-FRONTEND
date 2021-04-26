@@ -8,12 +8,12 @@ const EditCasesComponent = ({ isModalUpdateVisible, setIsModalUpdateVisible, cur
     const [isNotUndefined, setIsNotUndefined] = useState(false);
 
     useEffect(() => {
-        if (currentId != undefined) {
+        if (currentId !== undefined) {
             setIsNotUndefined(true);
         } else {
             setIsNotUndefined(false);
         }
-    })
+    }, [currentId])
 
     const handleOk = (values) => {
         axios.put(`http://localhost:4000/cases/update/${currentId}`,values)
@@ -32,7 +32,7 @@ const EditCasesComponent = ({ isModalUpdateVisible, setIsModalUpdateVisible, cur
         <div>
             {
                 (isNotUndefined)
-                    ? <Modal title="Basic Modal" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
+                    ? <Modal title="Editar Caso" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
                         footer={
                             <Button form='form-edit-cases' key='submit' htmlType='submit'>
                                 Aceptar

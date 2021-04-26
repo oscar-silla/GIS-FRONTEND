@@ -25,7 +25,7 @@ const DocumentsTableComponent = ({ idUser }) => {
                 }
                 setUpdated(false);
             });
-    }, [updated]);
+    }, [updated, idUser]);
 
     const showModalCreate = () => {
         setIsModalCreateVisible(true);
@@ -52,8 +52,8 @@ const DocumentsTableComponent = ({ idUser }) => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='info-color'>Visualizar</a>
-                    <a className='edit-color' onClick={(e) => showModalUpdate(record._id)}>Editar</a>
+                    <span className='info-color option'>Visualizar</span>
+                    <span className='edit-color option' onClick={(e) => showModalUpdate(record._id)}>Editar</span>
                     <DeleteDocumentDetailComponent id={record._id} setUpdated={setUpdated}></DeleteDocumentDetailComponent>
                 </Space>
             ),

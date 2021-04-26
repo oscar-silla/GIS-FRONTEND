@@ -20,7 +20,7 @@ const CreateCitesComponent = ({ isModalCreateVisible ,setIsModalCreateVisible, s
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Crear Cita" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-create-cites' key='submit' htmlType='submit'>
                         Aceptar

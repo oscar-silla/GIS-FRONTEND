@@ -39,7 +39,7 @@ const TableDocumentsComponent = ({ patients }) => {
                         }
                     });
                 });
-                const documents_filtered = data_filtered.filter(document => document._id != 'No disponible');
+                const documents_filtered = data_filtered.filter(document => document._id !== 'No disponible');
                 setDocuments(documents_filtered);
                 setUpdated(false);
             });
@@ -80,7 +80,7 @@ const TableDocumentsComponent = ({ patients }) => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModalUpdate(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showModalUpdate(record._id)}>Editar</span>
                     <DeleteDocumentComponent currentId={record._id} setUpdated={setUpdated} />
                 </Space>
             ),

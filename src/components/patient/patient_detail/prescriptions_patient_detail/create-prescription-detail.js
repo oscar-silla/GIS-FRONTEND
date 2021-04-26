@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Button } from 'antd';
 import FormCreatePrescriptionDetailComponent from './form-create-prescription-detail';
 import axios from 'axios';
@@ -21,7 +21,7 @@ const CreatePrescriptionDetailComponent = ({ isModalCreateVisible, setIsModalCre
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Crear Prescripción" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='create-prescription-detail' key='submit' htmlType='submit'>
                         Aceptar

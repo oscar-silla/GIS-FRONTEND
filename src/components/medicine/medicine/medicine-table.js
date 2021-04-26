@@ -49,7 +49,7 @@ const MedicineTableComponent = ({ farmacies }) => {
                     });
                     return farmacy;
                 });
-                const medicines_filtered = data_filtered.filter(medicine => medicine._id != 'No disponible');
+                const medicines_filtered = data_filtered.filter(medicine => medicine._id !== 'No disponible');
                 setMedicines(medicines_filtered);
                 setUpdated(false);
             });
@@ -98,7 +98,7 @@ const MedicineTableComponent = ({ farmacies }) => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModalUpdate(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showModalUpdate(record._id)}>Editar</span>
                     <DeleteMedicineComponent currentId={record._id} setUpdated={setUpdated} />
                 </Space>
             ),

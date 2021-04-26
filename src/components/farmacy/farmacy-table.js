@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Tag, Space, Button } from 'antd';
+import { Table, Space, Button } from 'antd';
 import axios from 'axios';
 import { CreateFarmacyComponent } from './farmacy-table-options/create-farmacy';
 import { UpdateFarmacyComponent } from './farmacy-table-options/update-farmacy';
@@ -46,7 +46,7 @@ const FarmacyTableComponent = () => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModalUpdate(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showModalUpdate(record._id)}>Editar</span>
                     <DeleteFarmacyComponent currentId={record._id} setUpdated={setUpdated} />
                 </Space>
             ),

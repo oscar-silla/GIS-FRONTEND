@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react'
-import { Table, Tag, Space, Button, Divider } from 'antd';
+import { Table, Space, Divider } from 'antd';
 import axios from 'axios';
 import EditCasesComponent from './table_cases_options/edit-cases';
 import DeleteCasesComponent from './table_cases_options/delete-cases';
@@ -36,7 +36,7 @@ const TableCasesComponent = ({ patients, isCreated, setIsCreated }) => {
                             }
                         });
                     });
-                    const filter = cases_filtered.filter(patientCase => patientCase.name != 'No disponible');
+                    const filter = cases_filtered.filter(patientCase => patientCase.name !== 'No disponible');
                     setCases(filter);
                     setUpdated(false);
                     setIsCreated(false);
@@ -73,7 +73,7 @@ const TableCasesComponent = ({ patients, isCreated, setIsCreated }) => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModalUpdate(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showModalUpdate(record._id)}>Editar</span>
                     <DeleteCasesComponent setUpdated={setUpdated} currentId={record._id} />
                 </Space>
             ),

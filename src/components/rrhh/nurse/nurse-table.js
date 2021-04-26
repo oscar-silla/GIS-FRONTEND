@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Tag, Space, Divider, Button } from 'antd';
+import { Table, Space, Divider, Button } from 'antd';
 import axios from 'axios';
 import CreateNurseComponent from './table-nurse-options/create-nurse';
 import UpdateNurseComponent from './table-nurse-options/update-nurse';
@@ -55,7 +55,7 @@ const NurseTableComponent = () => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showUpdateModal(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showUpdateModal(record._id)}>Editar</span>
                     <DeleteNurseComponent currentId={record._id} setUpdated={setUpdated}/>
                 </Space>
             ),

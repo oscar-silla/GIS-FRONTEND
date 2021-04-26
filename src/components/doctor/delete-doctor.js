@@ -10,9 +10,9 @@ const DeleteDoctorComponent = ({_id, setUpdate}) => {
     const showModalDelete = (id) => {
         console.log(id)
         confirm({
-            title: 'Are you sure delete this task?',
+            title: '¿Desea elminar a este doctor?',
             icon: <ExclamationCircleOutlined />,
-            content: 'Some descriptions',
+            content: '',
             okText: 'Yes',
             okType: 'danger',
             cancelText: 'No',
@@ -33,7 +33,7 @@ const DeleteDoctorComponent = ({_id, setUpdate}) => {
 
     return (
         <div>
-            <a className='delete-color' onClick={(e) => showModalDelete(_id)}>Eliminar</a>
+            <span className='delete-color option' onClick={(e) => showModalDelete(_id)}>Eliminar</span>
         </div>
     );
 }

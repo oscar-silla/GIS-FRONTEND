@@ -20,7 +20,7 @@ const EditPrescriptionDetailComponent = ({ isModalUpdateVisible, setIsModalUpdat
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Editar Prescripción" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-update-prescription-detail' key='submit' htmlType='submit'>
                         Aceptar

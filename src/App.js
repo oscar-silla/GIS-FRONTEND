@@ -6,7 +6,6 @@ import {
     Switch,
     Route
 } from "react-router-dom";
-import DoctorListComponent from './components/doctor/doctor-table';
 import CreateDoctorComponent from './components/doctor/create-doctor';
 import PatientTableComponent from './components/patient/patient_list/patient-table';
 import CreatePatientComponent from './components/patient/patient_list/create-patient';
@@ -22,6 +21,7 @@ import RecepcionistComponent from './components/rrhh/recepcionist/recepcionist';
 import FarmacyComponent from './components/farmacy/farmacy';
 import MedicineCategoryComponent from './components/medicine/medicine_category/medicine-category';
 import MedicineComponent from './components/medicine/medicine/medicine';
+import DoctorTableComponent from './components/doctor/doctor-table';
 
 
 
@@ -53,7 +53,7 @@ const App = () => {
                             <div className='p-5'>
 
                                 <Switch>
-                                    <Route exact path="/doctor_list" component={DoctorListComponent} />
+                                    <Route exact path="/doctor_list" component={DoctorTableComponent} />
                                     <Route exact path="/create_doctor" component={CreateDoctorComponent} />
                                     <Route exact path="/patient_list" component={PatientTableComponent} />
                                     <Route exact path="/create_patient" component={CreatePatientComponent} />

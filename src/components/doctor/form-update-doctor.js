@@ -1,13 +1,13 @@
-import React, { useState } from 'react';
+import React, {useState} from 'react';
 import { Form, Input, Upload } from 'antd';
 import ImgCrop from 'antd-img-crop';
 
 const layout = {
     labelCol: { span: 5 },
-    wrapperCol: { span: 0 },
+    wrapperCol: { span: 16 },
 };
 
-const FormUpdatePharmacistComponent = ({ handleOk }) => {
+const FormUpdateDoctorComponent = ({ onOk }) => {
 
     const [fileList, setFileList] = useState([]);
 
@@ -17,8 +17,8 @@ const FormUpdatePharmacistComponent = ({ handleOk }) => {
             ...fieldValues,
             'image': image.thumbUrl
         }
-        handleOk(values);
-    };
+        onOk(values)
+    }
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
@@ -32,7 +32,7 @@ const FormUpdatePharmacistComponent = ({ handleOk }) => {
         <div>
             <Form
                 {...layout}
-                id='form-update-pharmacist'
+                id="form-update-doctor"
                 name="basic"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
@@ -41,19 +41,31 @@ const FormUpdatePharmacistComponent = ({ handleOk }) => {
                 <Form.Item
                     label="Nombre"
                     name="name"
-                    rules={[{ required: true, message: 'Introduce un nombre!' }]}
+                    rules={[{ required: true, message: 'Por favor, introduce un nombre!' }]}
                 >
                     <Input />
                 </Form.Item>
 
-                <Form.Item name='email' label="Email" rules={[{ required: true, type: 'email', message: 'Introduce un email de contacto!' }]}>
+                <Form.Item
+                    label="Apellidos"
+                    name="surnames"
+                    rules={[{ required: true, message: 'Por favor, introduce un apellido!' }]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Email"
+                    name="email"
+                    rules={[{ required: true, message: 'Por favor, introduce un email valido! Ejemplo: ( persona@hospital.com )', type: 'email' }]}
+                >
                     <Input />
                 </Form.Item>
 
                 <Form.Item
                     label="Contraseña"
                     name="password"
-                    rules={[{ required: true, message: 'Introduce una contraseña!' }]}
+                    rules={[{ required: true, message: 'Por favor, introduce una contraseña!' }]}
                 >
                     <Input.Password />
                 </Form.Item>
@@ -65,7 +77,19 @@ const FormUpdatePharmacistComponent = ({ handleOk }) => {
                     <Input />
                 </Form.Item>
 
-                <Form.Item name='phone' label="Teléfono">
+                <Form.Item
+                    label="Teléfono"
+                    name="phone"
+                    rules={[{ required: true, message: 'Por favor, introduce un número de teléfono!', min: 9, max: 9 }]}
+                >
+                    <Input />
+                </Form.Item>
+
+                <Form.Item
+                    label="Ocupación"
+                    name="occupation"
+                    rules={[{ required: true, message: 'Por favor, introduce una ocupación!' }]}
+                >
                     <Input />
                 </Form.Item>
 
@@ -89,4 +113,4 @@ const FormUpdatePharmacistComponent = ({ handleOk }) => {
     );
 }
 
-export default FormUpdatePharmacistComponent;
+export default FormUpdateDoctorComponent;

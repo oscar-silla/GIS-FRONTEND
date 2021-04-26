@@ -1,35 +1,49 @@
-import React from 'react';
+import React, { useState, useEffect } from 'react';
 import { Form, Input, Upload } from 'antd';
-import { PictureOutlined } from '@ant-design/icons';
+import ImgCrop from 'antd-img-crop';
+import axios from 'axios';
 
 const layout = {
     labelCol: { span: 5 },
     wrapperCol: { span: 16 },
 };
 
-const FormEditComponent = ({ onOk }) => {
+const FormCreateDoctorComponent = ({ handleOk }) => {
 
-    const onFinish = (values) => {
-        onOk(values)
+    const [doctors, setDoctors] = useState([]);
+    const [fileList, setFileList] = useState([]);
+
+    useEffect(() => {
+        axios.get('http://localhost:4000/doctors')
+            .then(result => {
+                const { data } = result.data;
+                setDoctors(data);
+            });
+    }, []);
+
+    const onFinish = (fieldValues) => {
+        const image = fileList.find(file => file.thumbUrl);
+        const values = {
+            'id_doctor': doctors.length + 1,
+            ...fieldValues,
+            'image': image.thumbUrl
+        }
+        handleOk(values);
     }
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
     };
 
-    const normFile = (e) => {
-        console.log('Upload event:', e);
-        if (Array.isArray(e)) {
-            return e;
-        }
-        return e && e.fileList;
+    const onChange = ({ fileList: newFileList }) => {
+        setFileList(newFileList);
     };
 
     return (
         <div>
             <Form
                 {...layout}
-                id="myForm"
+                id='form-create-doctor'
                 name="basic"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
@@ -74,17 +88,6 @@ const FormEditComponent = ({ onOk }) => {
                     <Input />
                 </Form.Item>
 
-                <Form.Item label="Imagen">
-                    <Form.Item name="image" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-                        <Upload.Dragger name="files" action="/upload.do">
-                            <p className="ant-upload-drag-icon">
-                                <PictureOutlined />
-                            </p>
-                            <p className="ant-upload-text">Haz click o Arrastra una imagen</p>
-                        </Upload.Dragger>
-                    </Form.Item>
-                </Form.Item>
-
                 <Form.Item
                     label="Teléfono"
                     name="phone"
@@ -100,9 +103,25 @@ const FormEditComponent = ({ onOk }) => {
                 >
                     <Input />
                 </Form.Item>
+
+                <Form.Item label="Imagen">
+                    <Form.Item>
+                        <ImgCrop rotate>
+                            <Upload
+                                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                listType="picture-card"
+                                fileList={fileList}
+                                onChange={onChange}
+
+                            >
+                                {fileList.length < 5 && '+ Upload'}
+                            </Upload>
+                        </ImgCrop>
+                    </Form.Item>
+                </Form.Item>
             </Form>
         </div>
-    );
+    )
 }
 
-export default FormEditComponent;
+export default FormCreateDoctorComponent;

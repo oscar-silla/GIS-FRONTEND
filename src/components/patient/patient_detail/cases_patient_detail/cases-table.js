@@ -42,7 +42,7 @@ const CasesTableComponent = ({ idUser }) => {
                 }
                 setUpdated(false);
             });
-    }, [updated]);
+    }, [updated, idUser]);
 
     const showModal = (id) => {
         setIsModalVisible(true);
@@ -86,7 +86,7 @@ const CasesTableComponent = ({ idUser }) => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModal(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showModal(record._id)}>Editar</span>
                     <DeleteCasesComponent setUpdated={setUpdated} id={record._id} />
                 </Space>
             ),

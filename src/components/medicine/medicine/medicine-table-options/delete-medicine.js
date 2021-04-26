@@ -27,7 +27,7 @@ const DeleteMedicineComponent = ({ currentId, setUpdated }) => {
 
     return (
         <div>
-            <a className='delete-color' onClick={showConfirm}>Borrar</a>
+            <span className='delete-color option' onClick={showConfirm}>Borrar</span>
         </div>
     );
 }

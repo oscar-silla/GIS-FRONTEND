@@ -20,7 +20,7 @@ const CreatePharmacistComponent = ({ isModalCreateVisible, setIsModalCreateVisib
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Crear Farmacéutico" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-create-pharmacist' key='submit' htmlType='submit'>
                         Aceptar

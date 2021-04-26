@@ -1,6 +1,6 @@
 import React, { useEffect, useState } from 'react';
 import { Form, Input, Radio, DatePicker, Select, Upload } from 'antd';
-import { InboxOutlined } from '@ant-design/icons';
+import ImgCrop from 'antd-img-crop';
 import axios from 'axios';
 
 const layout = {
@@ -12,18 +12,12 @@ const config = {
     rules: [{ type: 'object', required: true, message: 'Please select time!' }],
 };
 
-const normFile = (e) => {
-    console.log('Upload event:', e);
-    if (Array.isArray(e)) {
-        return e;
-    }
-    return e && e.fileList;
-};
 
 const FormCreatePatientComponent = ({ handleOk }) => {
 
     const [doctors, setDoctors] = useState([]);
     const [patients, setPatients] = useState([]);
+    const [fileList, setFileList] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:4000/doctors')
@@ -39,16 +33,22 @@ const FormCreatePatientComponent = ({ handleOk }) => {
     }, []);
 
     const onFinish = (fieldsValue) => {
+        const image = fileList.find(file => file.thumbUrl);
         const values = {
             ...fieldsValue,
             'id_patient': patients.length + 1,
-            'born': fieldsValue['born'].format('YYYY-MM-DD')
+            'born': fieldsValue['born'].format('YYYY-MM-DD'),
+            'image': image.thumbUrl
         };
         handleOk(values);
     };
 
     const onFinishFailed = (errorInfo) => {
         console.log('Failed:', errorInfo);
+    };
+
+    const onChange = ({ fileList: newFileList }) => {
+        setFileList(newFileList);
     };
 
     return (
@@ -146,14 +146,18 @@ const FormCreatePatientComponent = ({ handleOk }) => {
                 </Form.Item>
 
                 <Form.Item label="Imagen">
-                    <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
-                        <Upload.Dragger name="files" action="/upload.do">
-                            <p className="ant-upload-drag-icon">
-                                <InboxOutlined />
-                            </p>
-                            <p className="ant-upload-text">Click or drag file to this area to upload</p>
-                            <p className="ant-upload-hint">Support for a single or bulk upload.</p>
-                        </Upload.Dragger>
+                    <Form.Item>
+                        <ImgCrop rotate>
+                            <Upload
+                                action="https://www.mocky.io/v2/5cc8019d300000980a055e76"
+                                listType="picture-card"
+                                fileList={fileList}
+                                onChange={onChange}
+
+                            >
+                                {fileList.length < 5 && '+ Upload'}
+                            </Upload>
+                        </ImgCrop>
                     </Form.Item>
                 </Form.Item>
             </Form>

@@ -5,9 +5,6 @@ const layout = {
     labelCol: { span: 5 },
     wrapperCol: { span: 0 },
 };
-const tailLayout = {
-    wrapperCol: { offset: 3, span: 0 },
-};
 
 const FormCreateCasesDetailComponent = ({ onOk }) => {
 

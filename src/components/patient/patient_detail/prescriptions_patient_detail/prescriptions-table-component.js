@@ -36,7 +36,7 @@ const PrescriptionsTableComponent = ({ idUser, doctors }) => {
                     setPrescriptions([]);
                 }
             });
-    }, [doctors, updated]);
+    }, [doctors, updated, idUser]);
 
     const showModalCreate = () => {
         setIsModalCreateVisible(true);
@@ -63,7 +63,7 @@ const PrescriptionsTableComponent = ({ idUser, doctors }) => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModalUpdate(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showModalUpdate(record._id)}>Editar</span>
                     <DeletePrescriptionsDetailComponent currentIdPrescription={record._id} setUpdated={setUpdated}/>
                 </Space>
             ),

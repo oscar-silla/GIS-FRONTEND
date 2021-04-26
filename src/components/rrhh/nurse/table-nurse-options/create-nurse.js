@@ -20,7 +20,7 @@ const CreateNurseComponent = ({ isModalCreateVisible, setIsModalCreateVisible, s
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Crear Enfermera" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
             footer={
                 <Button form='form-create-nurse' key='submit' htmlType='submit'>
                     Aceptar

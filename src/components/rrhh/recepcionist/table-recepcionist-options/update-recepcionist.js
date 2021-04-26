@@ -21,7 +21,7 @@ const UpdateRecepcionistComponent = ({ isModalUpdateVisible, setIsModalUpdateVis
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Editar Recepcionista" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-update-recepcionist' key='submit' htmlType='submit'>
                         Aceptar

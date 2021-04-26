@@ -15,7 +15,7 @@ const UpdateCasesComponent = ({isModalVisible, handleCancel, setIsModalVisible, 
 
     return (
         <div>
-            <Modal title={`${patient}: ${title}`} visible={isModalVisible} onOk={onOk} onCancel={handleCancel} footer={[
+            <Modal title='Editar Caso' visible={isModalVisible} onOk={onOk} onCancel={handleCancel} footer={[
                 <Button form="update-cases" key="submit" htmlType="submit">
                     Aceptar
                 </Button>

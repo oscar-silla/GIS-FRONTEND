@@ -20,7 +20,7 @@ const CreateRecepcionistComponent = ({ isModalCreateVisible, setIsModalCreateVis
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Crear Recepcionista" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-create-recepcionist' key='submit' htmlType='submit'>
                         Aceptar

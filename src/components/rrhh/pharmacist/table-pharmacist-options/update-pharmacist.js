@@ -20,7 +20,7 @@ const UpdatePharmacistComponent = ({ isModalUpdateVisible, setIsModalUpdateVisib
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Editar Farmacéutico" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-update-pharmacist' key='submit' htmlType='submit'>
                         Aceptar

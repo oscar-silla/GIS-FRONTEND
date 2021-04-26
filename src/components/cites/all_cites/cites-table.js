@@ -57,7 +57,7 @@ const CitesTableComponent = ({ patients, doctors }) => {
                         }
                     });
                 });
-                const cites_filtered = data_filtered.filter(cite => cite._id != 'No disponible');
+                const cites_filtered = data_filtered.filter(cite => cite._id !== 'No disponible');
                 setCites(cites_filtered);
                 setUpdated(false);
             })
@@ -108,7 +108,7 @@ const CitesTableComponent = ({ patients, doctors }) => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModalUpate(record._id)}>Editar</a>
+                    <span className='edit-color option' onClick={(e) => showModalUpate(record._id)}>Editar</span>
                     <DeleteCitesComponent setUpdated={setUpdated} currentId={record._id} />
                 </Space>
             ),

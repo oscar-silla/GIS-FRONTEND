@@ -1,5 +1,5 @@
 import React from 'react';
-import { Modal, Button, Space } from 'antd';
+import { Modal } from 'antd';
 import { ExclamationCircleOutlined } from '@ant-design/icons';
 import axios from 'axios';
 
@@ -27,7 +27,7 @@ const DeleteCasesComponent = ({ setUpdated, currentId }) => {
 
     return (
         <div>
-            <a className='delete-color' onClick={showConfirm}>Delete</a>
+            <span className='delete-color option' onClick={showConfirm}>Delete</span>
         </div>
     );
 }

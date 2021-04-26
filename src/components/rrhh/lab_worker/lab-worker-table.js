@@ -53,7 +53,7 @@ const LabWorkerTableComponent = () => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showUpdateModal(record._id)} >Editar</a>
+                    <span className='edit-color option' onClick={(e) => showUpdateModal(record._id)} >Editar</span>
                     <DeleteLabWorkerComponent currentId={record._id} setUpdated={setUpdated} />
                 </Space>
             ),
@@ -77,7 +77,7 @@ const LabWorkerTableComponent = () => {
                     Añadir Laboratorista
                 </Button>
             </div>
-            <Table dataSource={labWorkers} columns={columns} />
+            <Table dataSource={labWorkers} columns={columns} rowKey={record => record._id} />
             <CreateLabWorkerComponent
                 isModalCreateVisible={isModalCreateVisible}
                 setIsModalCreateVisible={setIsModalCreateVisible}

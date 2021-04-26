@@ -22,7 +22,7 @@ const FormCreateLabWorkerComponent = ({ handleOk }) => {
     }, []);
 
     const onFinish = (fieldValues) => {
-        const image = fileList.find(file => file.thumbUrl)
+        const image = fileList.find(file => file.thumbUrl);
         const values = {
             ...fieldValues,
             'image': image.thumbUrl,

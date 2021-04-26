@@ -15,7 +15,6 @@ const FormUpdateCitesComponent = ({ handleOk }) => {
 
     const [patients, setPatients] = useState([]);
     const [doctors, setDoctors] = useState([]);
-    const [cites, setCites] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:4000/patients')
@@ -27,11 +26,6 @@ const FormUpdateCitesComponent = ({ handleOk }) => {
             .then(result => {
                 const { data } = result.data;
                 setDoctors(data);
-            });
-        axios.get('http://localhost:4000/cites')
-            .then(result => {
-                const { data } = result.data;
-                setCites(data);
             });
     }, []);
 

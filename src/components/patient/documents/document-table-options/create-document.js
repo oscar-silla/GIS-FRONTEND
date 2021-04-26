@@ -19,7 +19,7 @@ const CreateDocumentComponent = ({isModalCreateVisible, setIsModalCreateVisible,
     };
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Crear Documento" visible={isModalCreateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-create-document' key='submit' htmlType='submit'>
                         Aceptar

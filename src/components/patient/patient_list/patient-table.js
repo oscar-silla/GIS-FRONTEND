@@ -1,5 +1,5 @@
 import React, { useEffect, useState } from 'react';
-import { Table, Tag, Space, Button, Divider } from 'antd';
+import { Table, Space, Button, Divider } from 'antd';
 import axios from 'axios';
 import { Link } from 'react-router-dom';
 import UpdatePatientComponent from './update-patient';
@@ -32,9 +32,9 @@ const PatientTableComponent = () => {
 
     const columns = [
         {
-            title: 'Id',
-            dataIndex: 'id_patient',
-            key: 'id_patient'
+            title: 'Imagen',
+            key: 'image',
+            render: patient => <img className='image' alt={patient.image} src={patient.image} />
         },
         {
             title: 'Nombre',
@@ -56,10 +56,10 @@ const PatientTableComponent = () => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModalUpdate(record._id)}>Editar</a>
-                    <Link to={`/patient_detail/${record._id}`}>
-                        <a className='info-color'>Información</a>
-                    </Link>
+                    <span className='edit-color option' onClick={(e) => showModalUpdate(record._id)}>Editar</span>
+
+                    <Link className='info-color' to={`/patient_detail/${record._id}`}>Información</Link>
+
                     <DeletePatientComponent setUpdated={setUpdated} id={record._id} />
 
                 </Space>
@@ -100,7 +100,6 @@ const PatientTableComponent = () => {
                 setUpdated={setUpdated}
                 isModalUpdateVisible={isModalUpdateVisible}
                 setIsModalUpdateVisible={setIsModalUpdateVisible}
-                setUpdated={setUpdated}
             />
             <CreatePatientComponent
                 isModalCreateVisible={isModalCreateVisible}

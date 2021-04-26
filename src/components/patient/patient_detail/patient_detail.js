@@ -15,11 +15,8 @@ const PatientDetailComponent = () => {
         surnames: '',
         phone: ''
     });
-    const { name, surnames, phone } = patient;
 
     const [doctors, setDoctors] = useState([]);
-    const [updated, setUpdated] = useState(false);
-
 
     useEffect(() => {
         axios.get(`http://localhost:4000/patients/${id}`)
@@ -36,12 +33,12 @@ const PatientDetailComponent = () => {
                 });
             });
         axios.get(`http://localhost:4000/doctors/`)
-                .then(result => {
-                    const {data} = result.data;
-                    console.log(data)
-                    setDoctors(data);
-                });
-    }, []);
+            .then(result => {
+                const { data } = result.data;
+                console.log(data)
+                setDoctors(data);
+            });
+    }, [id]);
 
 
     return (
@@ -51,7 +48,7 @@ const PatientDetailComponent = () => {
             <div className='flex-space'>
                 <CasesTableComponent idUser={id}></CasesTableComponent>
                 <DocumentsTableComponent idUser={id}></DocumentsTableComponent>
-                <PrescriptionsTableComponent idUser={id} setUpdated={setUpdated} doctors={doctors}></PrescriptionsTableComponent>
+                <PrescriptionsTableComponent idUser={id} doctors={doctors}></PrescriptionsTableComponent>
             </div>
         </div>
     );

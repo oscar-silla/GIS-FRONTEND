@@ -21,7 +21,7 @@ const UpdateTechnicianComponent = ({ isModalUpdateVisible, setIsModalUpdateVisib
 
     return (
         <div>
-            <Modal title="Basic Modal" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
+            <Modal title="Editar Técnico de Mantenimiento" visible={isModalUpdateVisible} onOk={handleOk} onCancel={handleCancel}
                 footer={
                     <Button form='form-update-technician' key='submit' htmlType='submit'>
                         Aceptar
