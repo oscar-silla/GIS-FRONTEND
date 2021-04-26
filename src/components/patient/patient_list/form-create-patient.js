@@ -20,10 +20,10 @@ const normFile = (e) => {
     return e && e.fileList;
 };
 
-
-const FormUpdateComponent = ({ onOk }) => {
+const FormCreatePatientComponent = ({ handleOk }) => {
 
     const [doctors, setDoctors] = useState([]);
+    const [patients, setPatients] = useState([]);
 
     useEffect(() => {
         axios.get('http://localhost:4000/doctors')
@@ -31,15 +31,20 @@ const FormUpdateComponent = ({ onOk }) => {
                 const { data } = res.data;
                 setDoctors(data);
             });
+        axios.get('http://localhost:4000/patients')
+            .then(res => {
+                const { data } = res.data;
+                setPatients(data);
+            });
     }, []);
 
     const onFinish = (fieldsValue) => {
         const values = {
             ...fieldsValue,
+            'id_patient': patients.length + 1,
             'born': fieldsValue['born'].format('YYYY-MM-DD')
         };
-        console.log(values)
-        onOk(values);   
+        handleOk(values);
     };
 
     const onFinishFailed = (errorInfo) => {
@@ -50,16 +55,16 @@ const FormUpdateComponent = ({ onOk }) => {
         <div>
             <Form
                 {...layout}
+                id='form-create-patient'
                 name="basic"
                 initialValues={{ remember: true }}
                 onFinish={onFinish}
                 onFinishFailed={onFinishFailed}
-                id="updatePatientForm"
             >
                 <Form.Item
                     label="Nombre"
                     name="name"
-                    
+                    rules={[{ required: true, message: 'Introduce el nombre del paciente!' }]}
                 >
                     <Input />
                 </Form.Item>
@@ -67,7 +72,7 @@ const FormUpdateComponent = ({ onOk }) => {
                 <Form.Item
                     label="Apellidos"
                     name="surnames"
-                    
+                    rules={[{ required: true, message: 'Introduce los apellidos del paciente!' }]}
                 >
                     <Input />
                 </Form.Item>
@@ -75,7 +80,7 @@ const FormUpdateComponent = ({ onOk }) => {
                 <Form.Item
                     label="Email"
                     name="email"
-                    
+                    rules={[{ required: true, message: 'Introduce un email de contacto', type: 'email' }]}
                 >
                     <Input />
                 </Form.Item>
@@ -83,7 +88,7 @@ const FormUpdateComponent = ({ onOk }) => {
                 <Form.Item
                     label="Dirección"
                     name="address"
-                    
+                    rules={[{ required: true, message: 'Introduce una dirección!' }]}
                 >
                     <Input />
                 </Form.Item>
@@ -91,14 +96,14 @@ const FormUpdateComponent = ({ onOk }) => {
                 <Form.Item
                     label="Teléfono"
                     name="phone"
-                    
+                    rules={[{ required: true, message: 'Introduce un número de teléfono!', min: 0, max: 9 }]}
                 >
                     <Input />
                 </Form.Item>
 
                 <Form.Item name="sex"
                     label="Sexo"
-                    >
+                    rules={[{ required: true, message: 'Escoge una opción!' }]}>
                     <Radio.Group>
                         <Radio value="male">Hombre</Radio>
                         <Radio value="female">Mujer</Radio>
@@ -107,13 +112,13 @@ const FormUpdateComponent = ({ onOk }) => {
 
                 <Form.Item name="born"
                     label="Nacimiento" {...config}
-                   >
+                    rules={[{ required: true, message: 'Introduce la fecha de nacimiento del paciente!' }]}>
                     <DatePicker />
                 </Form.Item>
 
                 <Form.Item label="G. Sanguíneo"
                     name='blood_type'
-                    >
+                    rules={[{ required: true, message: 'Introduce el grupo sanguíneo del paciente!' }]}>
                     <Select>
                         <Select.Option value="A+">A+</Select.Option>
                         <Select.Option value="B+">B+</Select.Option>
@@ -128,7 +133,7 @@ const FormUpdateComponent = ({ onOk }) => {
 
                 <Form.Item label="Médico"
                     name='doctor'
-                    >
+                    rules={[{ required: true, message: 'Médico del paciente!' }]}>
                     <Select>
                         {
                             doctors.map(doctor => {
@@ -141,7 +146,7 @@ const FormUpdateComponent = ({ onOk }) => {
                 </Form.Item>
 
                 <Form.Item label="Imagen">
-                    <Form.Item name="image" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
+                    <Form.Item name="dragger" valuePropName="fileList" getValueFromEvent={normFile} noStyle>
                         <Upload.Dragger name="files" action="/upload.do">
                             <p className="ant-upload-drag-icon">
                                 <InboxOutlined />
@@ -156,4 +161,4 @@ const FormUpdateComponent = ({ onOk }) => {
     );
 }
 
-export default FormUpdateComponent;
+export default FormCreatePatientComponent;

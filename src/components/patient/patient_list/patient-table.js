@@ -4,12 +4,14 @@ import axios from 'axios';
 import { Link } from 'react-router-dom';
 import UpdatePatientComponent from './update-patient';
 import DeletePatientComponent from './delete-patient';
+import CreatePatientComponent from './create-patient';
 
 const PatientTableComponent = () => {
 
     const [patients, setPatients] = useState([]);
     const [updated, setUpdated] = useState(false);
-    const [isModalVisible, setIsModalVisible] = useState(false);
+    const [isModalUpdateVisible, setIsModalUpdateVisible] = useState(false);
+    const [isModalCreateVisible, setIsModalCreateVisible] = useState(false);
     const [patient, setPatient] = useState({
         name: '',
         surnames: '',
@@ -27,19 +29,6 @@ const PatientTableComponent = () => {
             });
         console.log(updated)
     }, [updated]);
-
-    const showModal = (id) => {
-        setIsModalVisible(true);
-        axios.get(`http://localhost:4000/patients/${id}`)
-            .then(res => {
-                const { data } = res.data;
-                setPatient({
-                    name: data.name,
-                    surnames: data.surnames,
-                    id: id
-                })
-            })
-    };
 
     const columns = [
         {
@@ -67,7 +56,7 @@ const PatientTableComponent = () => {
             key: 'action',
             render: (text, record) => (
                 <Space size="middle">
-                    <a className='edit-color' onClick={(e) => showModal(record._id)}>Editar</a>
+                    <a className='edit-color' onClick={(e) => showModalUpdate(record._id)}>Editar</a>
                     <Link to={`/patient_detail/${record._id}`}>
                         <a className='info-color'>Información</a>
                     </Link>
@@ -78,25 +67,45 @@ const PatientTableComponent = () => {
         },
     ];
 
+    const showModalCreate = () => {
+        setIsModalCreateVisible(true);
+    };
+
+    const showModalUpdate = (id) => {
+        setIsModalUpdateVisible(true);
+        axios.get(`http://localhost:4000/patients/${id}`)
+            .then(res => {
+                const { data } = res.data;
+                setPatient({
+                    name: data.name,
+                    surnames: data.surnames,
+                    id: id
+                });
+            });
+    };
+
     return (
         <div>
             <div className='flex'>
                 <h1>Patient Table</h1>
-                <Link className='flex-auto' to="/create_patient">
-                    <Button className='btn' type='primary'>
-                        Añadir paciente
-                    </Button>
-                </Link>
+                <Button className='flex-auto' type='primary' onClick={showModalCreate}>
+                    Añadir paciente
+                </Button>
             </div>
             <Divider />
             <Table columns={columns} dataSource={patients} rowKey={record => record._id} />
-            <UpdatePatientComponent 
-                id={id} name={name} 
+            <UpdatePatientComponent
+                id={id} name={name}
                 surnames={surnames}
-                setUpdated={setUpdated} 
-                isModalVisible={isModalVisible}
-                setIsModalVisible={setIsModalVisible} 
-                setUpdated={setUpdated} 
+                setUpdated={setUpdated}
+                isModalUpdateVisible={isModalUpdateVisible}
+                setIsModalUpdateVisible={setIsModalUpdateVisible}
+                setUpdated={setUpdated}
+            />
+            <CreatePatientComponent
+                isModalCreateVisible={isModalCreateVisible}
+                setIsModalCreateVisible={setIsModalCreateVisible}
+                setUpdated={setUpdated}
             />
         </div>
     );

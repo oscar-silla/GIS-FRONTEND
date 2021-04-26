@@ -1,12 +1,12 @@
-import React, { useState } from 'react';
+import React from 'react';
 import { Modal, Button } from 'antd';
 import FormUpdateComponent from './form-update';
 import axios from 'axios';
 
-const UpdatePatientComponent = ({ name, surnames, isModalVisible, setIsModalVisible, id, setUpdated }) => {
+const UpdatePatientComponent = ({ name, surnames, isModalUpdateVisible, setIsModalUpdateVisible, id, setUpdated }) => {
 
     const handleOk = (values) => {
-        setIsModalVisible(false);
+        setIsModalUpdateVisible(false);
         axios.put(`http://localhost:4000/patients/update/${id}`, values)
             .then(res => {
                 setUpdated(true)
@@ -15,15 +15,14 @@ const UpdatePatientComponent = ({ name, surnames, isModalVisible, setIsModalVisi
     };
 
     const handleCancel = () => {
-        setIsModalVisible(false);
+        setIsModalUpdateVisible(false);
     };
 
 
     return (
         <div>
-
             <Modal title={name + " " + surnames}
-                visible={isModalVisible}
+                visible={isModalUpdateVisible}
                 onOk={handleOk} onCancel={handleCancel}
                 footer={[
                     <Button form="updatePatientForm" key="submit" htmlType="submit">
