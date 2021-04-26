@@ -160,3 +160,8 @@ code {
 .status-select {
   width: 210px;
 }
+
+/* Medicines */
+.ml-10 {
+  margin-left: 10px;
+}

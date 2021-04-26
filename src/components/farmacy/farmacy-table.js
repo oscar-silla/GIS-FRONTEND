@@ -70,7 +70,7 @@ const FarmacyTableComponent = () => {
                     Añadir Farmacéutica
                 </Button>
             </div>
-            <Table columns={columns} dataSource={farmacies} />
+            <Table columns={columns} dataSource={farmacies} rowKey={record => record._id} />
             <CreateFarmacyComponent
                 isModalCreateVisible={isModalCreateVisible}
                 setIsModalCreateVisible={setIsModalCreateVisible}

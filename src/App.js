@@ -21,6 +21,7 @@ import TechnicianComponent from './components/rrhh/technician/technician';
 import RecepcionistComponent from './components/rrhh/recepcionist/recepcionist';
 import FarmacyComponent from './components/farmacy/farmacy';
 import MedicineCategoryComponent from './components/medicine/medicine_category/medicine-category';
+import MedicineComponent from './components/medicine/medicine/medicine';
 
 
 
@@ -67,6 +68,7 @@ const App = () => {
                                     <Route exact path="/rrhh/recepcionist" component={RecepcionistComponent} />
                                     <Route exact path="/farmacy" component={FarmacyComponent} />
                                     <Route exact path="/medicine/categories" component={MedicineCategoryComponent} />
+                                    <Route exact path="/medicine" component={MedicineComponent} />
                                 </Switch>
 
                             </div>

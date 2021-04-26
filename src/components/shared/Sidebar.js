@@ -64,7 +64,8 @@ const SidebarComponent = ({ visible }) => {
                                 <Menu.Item key="13"><Link to='/farmacy'></Link>Farmacéuticas</Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub6" icon={<FontAwesomeIcon icon={faPills} className='icon' />}>
-                                <Menu.Item key="14"><Link to='/medicine/categories'></Link>Categorias</Menu.Item>
+                            <Menu.Item key="14"><Link to='/medicine'></Link>Medicamentos</Menu.Item>
+                                <Menu.Item key="15"><Link to='/medicine/categories'></Link>Categorias</Menu.Item>
                             </SubMenu>
                         </Menu>
                         :
@@ -98,7 +99,8 @@ const SidebarComponent = ({ visible }) => {
                                 <Menu.Item key="13"><Link to='/farmacy'></Link>Farmacéuticas</Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub6" icon={<FontAwesomeIcon icon={faPills} className='icon' />} title={<span className='p-sidebar'>Medicinas</span>}>
-                                <Menu.Item key="14"><Link to='/medicine/categories'></Link>Categorias</Menu.Item>
+                                <Menu.Item key="14"><Link to='/medicine'></Link>Medicamentos</Menu.Item>
+                                <Menu.Item key="15"><Link to='/medicine/categories'></Link>Categorias</Menu.Item>
                             </SubMenu>
                         </Menu>
                 }
