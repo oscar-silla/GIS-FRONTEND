@@ -10,7 +10,8 @@ import {
     faCalendarAlt,
     faUserFriends,
     faClinicMedical,
-    faPills
+    faPills,
+    faFlask
 } from '@fortawesome/free-solid-svg-icons'
 
 
@@ -46,7 +47,7 @@ const SidebarComponent = ({ visible }) => {
                             </SubMenu>
                             <SubMenu key="sub2" icon={<FontAwesomeIcon icon={faUserInjured} className='icon' />}>
                                 <Menu.Item key="3"><Link to='/patient_list'></Link>Lista de Pacientes</Menu.Item>
-                               {/*  <Menu.Item key="4">Pagos</Menu.Item> */}
+                                {/*  <Menu.Item key="4">Pagos</Menu.Item> */}
                                 <Menu.Item key="5"><Link to='/cases'></Link>Caso del Paciente</Menu.Item>
                                 <Menu.Item key="6"><Link to='/documents'></Link>Documentos del Paciente</Menu.Item>
                             </SubMenu>
@@ -64,8 +65,11 @@ const SidebarComponent = ({ visible }) => {
                                 <Menu.Item key="13"><Link to='/farmacy'></Link>Farmacéuticas</Menu.Item>
                             </SubMenu>
                             <SubMenu key="sub6" icon={<FontAwesomeIcon icon={faPills} className='icon' />}>
-                            <Menu.Item key="14"><Link to='/medicine'></Link>Medicamentos</Menu.Item>
+                                <Menu.Item key="14"><Link to='/medicine'></Link>Medicamentos</Menu.Item>
                                 <Menu.Item key="15"><Link to='/medicine/categories'></Link>Categorias</Menu.Item>
+                            </SubMenu>
+                            <SubMenu key="sub7" icon={<FontAwesomeIcon icon={faFlask} className='icon' />}>
+                                <Menu.Item key="16"><Link to='/laboratory'></Link>Informes de Laboratorio</Menu.Item>
                             </SubMenu>
                         </Menu>
                         :
@@ -101,6 +105,9 @@ const SidebarComponent = ({ visible }) => {
                             <SubMenu key="sub6" icon={<FontAwesomeIcon icon={faPills} className='icon' />} title={<span className='p-sidebar'>Medicinas</span>}>
                                 <Menu.Item key="14"><Link to='/medicine'></Link>Medicamentos</Menu.Item>
                                 <Menu.Item key="15"><Link to='/medicine/categories'></Link>Categorias</Menu.Item>
+                            </SubMenu>
+                            <SubMenu key="sub7" icon={<FontAwesomeIcon icon={faFlask} className='icon' />} title={<span className='p-sidebar'>Laboratorio</span>}>
+                                <Menu.Item key="16"><Link to='/laboratory'></Link>Informes de Laboratorio</Menu.Item>
                             </SubMenu>
                         </Menu>
                 }

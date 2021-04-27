@@ -22,6 +22,7 @@ import FarmacyComponent from './components/farmacy/farmacy';
 import MedicineCategoryComponent from './components/medicine/medicine_category/medicine-category';
 import MedicineComponent from './components/medicine/medicine/medicine';
 import DoctorTableComponent from './components/doctor/doctor-table';
+import LaboratoryComponent from './components/laboratory/laboratory';
 
 
 
@@ -69,6 +70,7 @@ const App = () => {
                                     <Route exact path="/farmacy" component={FarmacyComponent} />
                                     <Route exact path="/medicine/categories" component={MedicineCategoryComponent} />
                                     <Route exact path="/medicine" component={MedicineComponent} />
+                                    <Route exact path="/laboratory" component={LaboratoryComponent} />
                                 </Switch>
 
                             </div>
